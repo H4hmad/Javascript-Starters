@@ -22,7 +22,7 @@ console.log(
 const populationFinland = 6;
 
 console.log(
-  `Does finland have less population than my country? i-e ${population} ? ${populationFinland}. THe answer is ${
+  `Does finland have less population than my country? i-e ${population} ? ${populationFinland}. The answer is ${
     populationFinland < population
   }`
 );
