@@ -1,8 +1,13 @@
-let country = "Australia";
-let continent = "Oeania";
+const country = "Australia";
+const continent = "Oeania";
 
-let population = "26 Million";
+const population = "26 Million";
 
-console.log(
-  `I am from ${country}, which is in the continent ${continent} and its population is ${population}`
-);
+const isIsland = true;
+
+const language = "English";
+
+console.log(typeof isIsland);
+console.log(typeof population);
+console.log(typeof country);
+console.log(typeof language);
