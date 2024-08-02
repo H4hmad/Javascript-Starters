@@ -1,8 +1,8 @@
-let country = "Australia";
-let continent = "Oeania";
+const firstName = "Hamad";
+const job = "student";
+const birthYear = 2001;
+const year = 2024;
 
-let population = "26 Million";
+const hamad = `I'm ${firstName}, a ${year - birthYear} years old ${job}.`;
 
-console.log(
-  `I am from ${country}, which is in the continent ${continent} and its population is ${population}`
-);
+console.log(hamad);
