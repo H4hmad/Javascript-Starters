@@ -1,22 +1,26 @@
-let tip;
-const calcTip = (billValue) => {
-  billValue > 50 && billValue < 300
-    ? (tip = billValue * 0.15)
-    : billValue * 0.2;
-  return tip;
+const mark = {
+  firstName: "Mark",
+  lastName: "Miller",
+  mass: 78,
+  height: 1.69,
+  bmi: function () {
+    return this.mass / this.height ** 2;
+  },
 };
 
-console.log(calcTip(100));
+const john = {
+  firstName: "John",
+  lastName: "Smith",
+  mass: 92,
+  height: 1.95,
 
-const bills = [125, 555, 44];
+  bmi: function () {
+    return this.mass / this.height ** 2;
+  },
+};
 
-const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
-
-const totals = [
-  calcTip(bills[0]) + bills[0],
-  calcTip(bills[1]) + bills[1],
-  calcTip(bills[2]) + bills[2],
-];
-
-console.log(`Tips: ${tips}`);
-console.log(`Totals: ${totals}`);
+console.log(
+  `${john.firstName}'s BMI (${john.bmi()}) is ${
+    john.bmi() > mark.bmi() ? "higher" : "lower"
+  } than ${mark.firstName}'s BMI (${mark.bmi()}).`
+);
