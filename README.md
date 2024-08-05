@@ -6,3 +6,5 @@ Currently working on Javascript Fundamentals - Part 2.
 Challenege 1 compelete
 
 Challenege 2 compelete
+
+Challenege 3 Complete
