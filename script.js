@@ -38,7 +38,26 @@ const restaurant = {
   },
 };
 
-restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Pizzaria',
+  owner: 'Giovanni Rossi',
+};
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+rest1.numGuests ??= 10;
+rest2.numGuests ||= 10;
+
+console.log(rest1);
+console.log(rest2);
+
+// restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 // const arr = [2, 3, 4];
 // const a = arr[0];
 // const b = arr[1];
@@ -66,3 +85,7 @@ restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 // console.log(ingredients);
 
 // restaurant.orderPasta(...ingredients);
+
+// restaurant.numGuests = 0;
+// const guest = restaurant.numGuests ?? 10;
+// console.log(guest);
