@@ -70,3 +70,23 @@ printGoals(...game.scored);
 
 team1 < team2 && console.log('Team 1 is more likely to win!');
 team1 > team2 && console.log('Team 2 is more likely to win!');
+
+for (const [goalNo, playerName] of game.scored.entries()) {
+  console.log(`Goal ${goalNo + 1}: ${playerName}`);
+}
+
+let oddsTotal = 0;
+for (const oddValues of Object.values(game.odds)) {
+  oddsTotal += oddValues;
+}
+console.log(
+  `The average odds is equal to: ${oddsTotal / Object.values(game.odds).length}`
+);
+
+for (const [teamNo, teamOdds] of Object.entries(game.odds)) {
+  console.log(
+    `Odd of ${teamNo === 'x' ? `draw` : 'victory'} ${
+      game[teamNo] ?? ''
+    }: ${teamOdds}`
+  );
+}
