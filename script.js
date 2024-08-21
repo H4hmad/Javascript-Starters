@@ -86,3 +86,32 @@ for (const player of game.scored) {
 }
 
 console.log(scorers);
+
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+gameEvents.delete(64);
+const size = gameEvents.size;
+console.log(`An event happened, on average, every ${90 / size} minutes.`);
+// console.log(gameEvents.size);
+console.log(gameEvents.entries());
+const events = new Set([...gameEvents.values()]);
+console.log(events);
+
+// console.log(gameEvents.get(...gameEvents.keys()));
+let i = 0;
+for (const x of gameEvents.entries()) {
+  console.log(`${x[0] > 45 ? '[SECOND HALF]' : '[FIRST HALF]'} ${x}`);
+  i++;
+}
