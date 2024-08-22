@@ -110,10 +110,16 @@ const events = new Set([...gameEvents.values()]);
 console.log(events);
 
 // console.log(gameEvents.get(...gameEvents.keys()));
-let i = 0;
+// let i = 0;
 for (const x of gameEvents.entries()) {
   console.log(`${x[0] > 45 ? '[SECOND HALF]' : '[FIRST HALF]'} ${x}`);
-  i++;
+  // i++;
 }
-
+console.log('\n\n');
 //Alternative approach
+// let x = 0;
+for (const [key, value] of gameEvents.entries()) {
+  // console.log(key, value);
+  console.log(`${key > 45 ? '[SECOND HALF]' : '[FIRST HALF]'} ${key} ${value}`);
+  // i++;
+}
