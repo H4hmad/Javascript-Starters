@@ -115,3 +115,5 @@ for (const x of gameEvents.entries()) {
   console.log(`${x[0] > 45 ? '[SECOND HALF]' : '[FIRST HALF]'} ${x}`);
   i++;
 }
+
+//Alternative approach
