@@ -1,29 +1,6 @@
 'use strict';
 
-//Challenge 3 - Data Structures
-document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
+//Data Structures - Bonus Challenege
 
-const text = document.querySelector('textarea').value;
-console.log(text);
-
-document.querySelector('button').addEventListener('click', function () {
-  const text = document.querySelector('textarea').value;
-  // console.log(text);
-
-  let finalText = '';
-  text.toLowerCase();
-  finalText = text.split('\n');
-  // console.log(finalText);
-  let i = 1;
-  for (let t of finalText) {
-    const [first, second] = t.toLowerCase().trim().split('_');
-    const output =
-      `${first}${second.replace(second[0], second[0].toUpperCase())}`.padEnd(
-        20,
-        ' '
-      ) + `✅`.repeat(i);
-    console.log(output);
-    i++;
-  }
-});
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
