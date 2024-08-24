@@ -24,7 +24,6 @@ document.querySelector('button').addEventListener('click', function () {
         ' '
       ) + `✅`.repeat(i);
     console.log(output);
-    // console.log(t.length);
     i++;
   }
 });
