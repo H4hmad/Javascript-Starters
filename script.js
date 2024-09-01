@@ -141,3 +141,50 @@ console.log(swiss);
 book.call(swiss, ...flightData);
 
 console.log(swiss);
+
+//Bind Method
+const bookEtihad = book.bind(etihad);
+const bookEmirates = book.bind(emirates);
+const bookSwiss = book.bind(swiss);
+
+bookEtihad(298, `Steven Williams`);
+
+console.log(etihad);
+
+const bookEtihad23 = book.bind(etihad, 23);
+bookEtihad23(`Hamad Ahmad`);
+bookEtihad23(`James Johns`);
+
+console.log(etihad);
+
+//With Event Listeners
+emirates.planes = 300;
+emirates.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+const emiratesCaller = emirates.buyPlane.bind(emirates);
+
+document.querySelector(`.buy`).addEventListener(`click`, emiratesCaller);
+
+//Partial Application
+const addTax = (rate, value) => value + value * rate;
+
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+
+// addVAT = value => addTax.bind(null, 0.23);
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+const addTaxv2 = rate => {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addVATv2 = addTaxRate(0.23);
+console.log(addVATv2(100));
