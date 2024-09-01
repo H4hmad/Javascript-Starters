@@ -81,12 +81,63 @@
 //   };
 // };
 
-const greet = greeting => name => {
-  console.log(`${greeting} ${name}`);
+// const greet = greeting => name => {
+//   console.log(`${greeting} ${name}`);
+// };
+
+// const greetHey = greet(`Hey`);
+// greetHey(`Hamad`);
+// greetHey('Yo');
+
+// greet(`Hello`)(`Jonas`);
+
+const emirates = {
+  airline: 'Emirates',
+  iataCode: `EK`,
+  bookings: [],
+
+  book(flightNum, passengerName) {
+    console.log(
+      `${passengerName} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({
+      flight: `${this.iataCode}${flightNum}`,
+      passengerName,
+    });
+  },
 };
 
-const greetHey = greet(`Hey`);
-greetHey(`Hamad`);
-greetHey('Yo');
+emirates.book(218, `Hamad Ahmad`);
+emirates.book(223, `Jonas Schmedtmann`);
+console.log(emirates);
 
-greet(`Hello`)(`Jonas`);
+const etihad = {
+  name: `Etihad`,
+  iataCode: `EY`,
+  bookings: [],
+};
+
+const book = emirates.book;
+
+book.call(etihad, 233, 'John Johnes');
+console.log(etihad);
+
+book.call(emirates, 253, 'Mary Cooper');
+console.log(emirates);
+
+const swiss = {
+  airline: `Swiss Airlines`,
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 332, `Barry Allens`);
+console.log(swiss);
+
+const flightData = [588, `George Cooper`];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+book.call(swiss, ...flightData);
+
+console.log(swiss);
