@@ -1,3 +1,3 @@
 Relearning Java Script:
 
-- Currently working on DS/Arrays etc.
+- Currently working on Functions.
