@@ -43,13 +43,30 @@
 //Data 1: [5, 2, 3]
 //Data 2: [1, 5, 3, 9, 6, 1]
 
-const runOnce = function () {
-  console.log(`This will never run again!`);
+// const runOnce = function () {
+//   console.log(`This will never run again!`);
+// };
+// runOnce();
+
+// (function () {
+//   console.log('This will never run again for sure!');
+// })();
+
+// (() => console.log(`Arrow IIFE, cant be run again`))();
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers.`);
+  };
 };
-runOnce();
 
-(function () {
-  console.log('This will never run again for sure!');
-})();
+const booker = secureBooking();
 
-(() => console.log(`Arrow IIFE, cant be run again`))();
+booker();
+booker();
+booker();
+
+console.dir(booker);
