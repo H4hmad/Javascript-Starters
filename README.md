@@ -1,3 +1,3 @@
-Relearning Java Script:
+Learning Java Script from Scratch:
 
-- Currently working on Functions.
+- Currently working on Arrays
