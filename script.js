@@ -125,7 +125,7 @@ displayMovements(account1.movements);
 // console.log(arr.slice(-1)[0]);
 // console.log(arr.at(-1));
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // for (const [i, movement] of movements.entries()) {
 //   if (movement > 0) {
@@ -162,22 +162,33 @@ displayMovements(account1.movements);
 // });
 
 //CHALLENGE 1 - Arrays
-const dogsJulia = [3, 5, 2, 12, 7];
-const dogsKate = [4, 1, 15, 8, 3];
-const dogsJulia2 = [9, 16, 6, 8, 3];
-const dogsKate2 = [10, 5, 6, 1, 4];
+// const dogsJulia = [3, 5, 2, 12, 7];
+// const dogsKate = [4, 1, 15, 8, 3];
+// const dogsJulia2 = [9, 16, 6, 8, 3];
+// const dogsKate2 = [10, 5, 6, 1, 4];
 
-const checkDogs = (dogsJulia, dogsKate) => {
-  const correctedArray = [...dogsJulia.slice(1, -2), ...dogsKate];
+// const checkDogs = (dogsJulia, dogsKate) => {
+//   const correctedArray = [...dogsJulia.slice(1, -2), ...dogsKate];
 
-  correctedArray.forEach((ele, i) => {
-    console.log(
-      `Dog number ${i + 1} is ${
-        ele >= 3 ? `an adult, and ${ele} years old.` : 'is still a puppy 🐶.'
-      }`
-    );
-  });
-};
+//   correctedArray.forEach((ele, i) => {
+//     console.log(
+//       `Dog number ${i + 1} is ${
+//         ele >= 3 ? `an adult, and ${ele} years old.` : 'is still a puppy 🐶.'
+//       }`
+//     );
+//   });
+// };
 
-checkDogs(dogsJulia, dogsKate);
-checkDogs(dogsJulia2, dogsKate2);
+// checkDogs(dogsJulia, dogsKate);
+// checkDogs(dogsJulia2, dogsKate2);
+
+//MAP
+
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(ele => {
+  return ele * eurToUsd;
+});
+
+console.log(movements);
+console.log(movementsUSD);
