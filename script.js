@@ -79,7 +79,12 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
-const user = 'Steven Thomas Williams'; //stw
+const calcDisplayBalance = movements => {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
 
 const createUsernames = accs => {
   accs.forEach(acc => {
@@ -91,7 +96,7 @@ const createUsernames = accs => {
   });
 };
 createUsernames(accounts);
-console.log(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -219,20 +224,40 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // console.log(movementsDescriptions);
 
-const deposits = movements.filter(mov => mov > 0);
+// const deposits = movements.filter(mov => mov > 0);
+
+// console.log(movements);
+// console.log(deposits);
+
+// const depositsFor = [];
+
+// for (const mov of movements) {
+//   if (mov > 0) {
+//     depositsFor.push(mov);
+//   }
+// }
+// console.log(depositsFor);
+
+// const withdrawls = movements.filter(mov => mov < 0);
+
+// console.log(withdrawls);
 
 console.log(movements);
-console.log(deposits);
+const balance = movements.reduce((acc, curr, i, arr) => acc + curr, 0);
 
-const depositsFor = [];
+console.log(balance);
+
+let balance2 = 0;
 
 for (const mov of movements) {
-  if (mov > 0) {
-    depositsFor.push(mov);
-  }
+  balance2 += mov;
 }
-console.log(depositsFor);
+console.log(balance2);
 
-const withdrawls = movements.filter(mov => mov < 0);
+//MAX VALUE
+const max = movements.reduce(
+  (acc, mov) => (acc > mov ? acc : (acc = mov)),
+  movements[0]
+);
 
-console.log(withdrawls);
+console.log(max);
