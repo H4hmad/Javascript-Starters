@@ -78,6 +78,18 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
+
+const user = 'Steven Thomas Williams'; //stw
+
+const createUsernames = user => {
+  const username = user
+    .toLowerCase()
+    .split(' ')
+    .map(name => name[0])
+    .join('');
+  return username;
+};
+console.log(createUsernames(`Steven Thomas Williams`));
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -184,23 +196,23 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 //MAP
 
-const eurToUsd = 1.1;
+// const eurToUsd = 1.1;
 
-const movementsUSD = movements.map(ele => ele * eurToUsd);
+// const movementsUSD = movements.map(ele => ele * eurToUsd);
 
-console.log(movements);
-console.log(movementsUSD);
+// console.log(movements);
+// console.log(movementsUSD);
 
-const movementsUSDfor = [];
-for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+// const movementsUSDfor = [];
+// for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
 
-console.log(movementsUSDfor);
+// console.log(movementsUSDfor);
 
-const movementsDescriptions = movements.map(
-  (mov, i) =>
-    `Movement [${i + 1}] - You ${
-      mov > 0 ? `deposited` : `withdrew`
-    }: $${Math.abs(mov)}`
-);
+// const movementsDescriptions = movements.map(
+//   (mov, i) =>
+//     `Movement [${i + 1}] - You ${
+//       mov > 0 ? `deposited` : `withdrew`
+//     }: $${Math.abs(mov)}`
+// );
 
-console.log(movementsDescriptions);
+// console.log(movementsDescriptions);
