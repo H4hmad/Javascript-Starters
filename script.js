@@ -180,27 +180,6 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //   console.log(`${key} : ${value}`);
 // });
 
-//CHALLENGE 1 - Arrays
-// const dogsJulia = [3, 5, 2, 12, 7];
-// const dogsKate = [4, 1, 15, 8, 3];
-// const dogsJulia2 = [9, 16, 6, 8, 3];
-// const dogsKate2 = [10, 5, 6, 1, 4];
-
-// const checkDogs = (dogsJulia, dogsKate) => {
-//   const correctedArray = [...dogsJulia.slice(1, -2), ...dogsKate];
-
-//   correctedArray.forEach((ele, i) => {
-//     console.log(
-//       `Dog number ${i + 1} is ${
-//         ele >= 3 ? `an adult, and ${ele} years old.` : 'is still a puppy 🐶.'
-//       }`
-//     );
-//   });
-// };
-
-// checkDogs(dogsJulia, dogsKate);
-// checkDogs(dogsJulia2, dogsKate2);
-
 //MAP
 
 // const eurToUsd = 1.1;
@@ -242,22 +221,78 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // console.log(withdrawls);
 
-console.log(movements);
-const balance = movements.reduce((acc, curr, i, arr) => acc + curr, 0);
+// console.log(movements);
+// const balance = movements.reduce((acc, curr, i, arr) => acc + curr, 0);
 
-console.log(balance);
+// console.log(balance);
 
-let balance2 = 0;
+// let balance2 = 0;
 
-for (const mov of movements) {
-  balance2 += mov;
-}
-console.log(balance2);
+// for (const mov of movements) {
+//   balance2 += mov;
+// }
+// console.log(balance2);
 
-//MAX VALUE
-const max = movements.reduce(
-  (acc, mov) => (acc > mov ? acc : (acc = mov)),
-  movements[0]
-);
+// //MAX VALUE
+// const max = movements.reduce(
+//   (acc, mov) => (acc > mov ? acc : (acc = mov)),
+//   movements[0]
+// );
 
-console.log(max);
+// console.log(max);
+
+// CHALLENGE 1 - Arrays
+const dogsJulia = [3, 5, 2, 12, 7];
+const dogsKate = [4, 1, 15, 8, 3];
+const dogsJulia2 = [9, 16, 6, 8, 3];
+const dogsKate2 = [10, 5, 6, 1, 4];
+
+const checkDogs = (dogsJulia, dogsKate) => {
+  const correctedArray = [...dogsJulia.slice(1, -2), ...dogsKate];
+
+  correctedArray.forEach((ele, i) => {
+    console.log(
+      `Dog number ${i + 1} is ${
+        ele >= 3 ? `an adult, and ${ele} years old.` : 'is still a puppy 🐶.'
+      }`
+    );
+  });
+};
+
+// checkDogs(dogsJulia, dogsKate);
+// checkDogs(dogsJulia2, dogsKate2);
+
+const calcAverageHumanAge = ages => {
+  let humanAge = [];
+  ages.forEach((ele, i) => {
+    if (ele <= 2) {
+      if (ele * 2 >= 19) humanAge.push(ele * 2);
+    } else {
+      if (16 + ele * 4 >= 19) humanAge.push(16 + ele * 4);
+    }
+  });
+
+  return humanAge;
+};
+
+const dogsAgeData1 = [5, 2, 4, 1, 15, 8, 3];
+const dogsAgeData2 = [16, 6, 10, 5, 6, 1, 4];
+
+const result1 = calcAverageHumanAge(dogsAgeData1);
+const result2 = calcAverageHumanAge(dogsAgeData2);
+const averageDogAge1 = result1.filter(age => age >= 28);
+
+const averageResult1 =
+  averageDogAge1.reduce((acc, ele) => acc + ele, 0) / averageDogAge1.length;
+const averageDogAge2 = result2.filter(age => age >= 28);
+
+const averageResult2 =
+  averageDogAge2.reduce((acc, ele) => acc + ele, 0) / averageDogAge2.length;
+
+console.log(result1);
+console.log(averageDogAge1);
+console.log(averageResult1);
+console.log(result2);
+console.log(averageDogAge2);
+console.log(averageResult2);
+// console.log(calcAverageHumanAge(dogsAgeData1));
