@@ -70,7 +70,7 @@ const displayMovements = function (movements) {
       <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-      <div class="movements__value">${mov}</div>
+      <div class="movements__value">${mov}€</div>
     </div>`;
 
     containerMovements.insertAdjacentHTML('afterbegin', html);
@@ -85,6 +85,12 @@ const calcDisplayBalance = movements => {
   labelBalance.textContent = `${balance} EUR`;
 };
 calcDisplayBalance(account1.movements);
+
+const calcDisplaySummary = function (mov) {
+  const incomes = mov.filter(mov => mov > 0).reduce((acc, mov) => acc + mov);
+  labelSumIn.textContent = `${incomes}€`;
+};
+calcDisplaySummary(account1.movements);
 
 const createUsernames = accs => {
   accs.forEach(acc => {
@@ -297,10 +303,15 @@ const checkDogs = (dogsJulia, dogsKate) => {
 // console.log(averageResult2);
 // console.log(calcAverageHumanAge(dogsAgeData1));
 
+//Piperline
 const eurToUsd = 1.1;
 const totalDepositsUSD = movements
   .filter(mov => mov > 0)
-  .map(mov => mov * eurToUsd)
+  .map((mov, i, arr) => {
+    // console.log(arr);
+    return mov * eurToUsd;
+  })
+  // .map(mov => mov * eurToUsd)
   .reduce((acc, mov) => acc + mov, 0);
 
 console.log(totalDepositsUSD);
