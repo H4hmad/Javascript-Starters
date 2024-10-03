@@ -281,43 +281,47 @@ const checkDogs = (dogsJulia, dogsKate) => {
   });
 };
 
-// checkDogs(dogsJulia, dogsKate);
-// checkDogs(dogsJulia2, dogsKate2);
+checkDogs(dogsJulia, dogsKate);
+checkDogs(dogsJulia2, dogsKate2);
 
-// const calcAverageHumanAge = ages => {
-//   let humanAge = [];
-//   ages.forEach((ele, i) => {
-//     if (ele <= 2) {
-//       if (ele * 2 >= 19) humanAge.push(ele * 2);
-//     } else {
-//       if (16 + ele * 4 >= 19) humanAge.push(16 + ele * 4);
-//     }
-//   });
+const calcAverageHumanAge = ages => {
+  let humanAge = [];
+  ages.forEach((ele, i) => {
+    if (ele <= 2) {
+      if (ele * 2 >= 19) humanAge.push(ele * 2);
+    } else {
+      if (16 + ele * 4 >= 19) humanAge.push(16 + ele * 4);
+    }
+  });
 
-//   return humanAge;
-// };
+  return humanAge;
+};
 
-// const dogsAgeData1 = [5, 2, 4, 1, 15, 8, 3];
-// const dogsAgeData2 = [16, 6, 10, 5, 6, 1, 4];
+//Challenege 2
 
-// const result1 = calcAverageHumanAge(dogsAgeData1);
-// const result2 = calcAverageHumanAge(dogsAgeData2);
-// const averageDogAge1 = result1.filter(age => age >= 28);
+//
 
-// const averageResult1 =
-//   averageDogAge1.reduce((acc, ele) => acc + ele, 0) / averageDogAge1.length;
-// const averageDogAge2 = result2.filter(age => age >= 28);
+const dogsAgeData1 = [5, 2, 4, 1, 15, 8, 3];
+const dogsAgeData2 = [16, 6, 10, 5, 6, 1, 4];
 
-// const averageResult2 =
-//   averageDogAge2.reduce((acc, ele) => acc + ele, 0) / averageDogAge2.length;
+const result1 = calcAverageHumanAge(dogsAgeData1);
+const result2 = calcAverageHumanAge(dogsAgeData2);
+const averageDogAge1 = result1.filter(age => age >= 28);
 
-// console.log(result1);
-// console.log(averageDogAge1);
-// console.log(averageResult1);
-// console.log(result2);
-// console.log(averageDogAge2);
-// console.log(averageResult2);
-// console.log(calcAverageHumanAge(dogsAgeData1));
+const averageResult1 =
+  averageDogAge1.reduce((acc, ele) => acc + ele, 0) / averageDogAge1.length;
+const averageDogAge2 = result2.filter(age => age >= 28);
+
+const averageResult2 =
+  averageDogAge2.reduce((acc, ele) => acc + ele, 0) / averageDogAge2.length;
+
+console.log(result1);
+console.log(averageDogAge1);
+console.log(averageResult1);
+console.log(result2);
+console.log(averageDogAge2);
+console.log(averageResult2);
+console.log(calcAverageHumanAge(dogsAgeData1));
 
 //Piperline
 const eurToUsd = 1.1;
