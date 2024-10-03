@@ -297,7 +297,16 @@ const calcAverageHumanAge = ages => {
   return humanAge;
 };
 
-//Challenege 2
+//Challenege 3
+let humanAge = [];
+const calcAverageHumanAgev2 = ages => {
+  ages.forEach((ages, i) => {
+    const eleGreater = ages
+      .filter(ages => ages <= 2)
+      .filter(ages => ages * 2 >= 19)
+      .map(ages => humanAge.push(ages));
+  });
+};
 
 //
 
@@ -306,6 +315,11 @@ const dogsAgeData2 = [16, 6, 10, 5, 6, 1, 4];
 
 const result1 = calcAverageHumanAge(dogsAgeData1);
 const result2 = calcAverageHumanAge(dogsAgeData2);
+const result3 = calcAverageHumanAgev2(dogsAgeData1);
+const result4 = calcAverageHumanAgev2(dogsAgeData2);
+
+console.log(result3);
+console.log(result4);
 const averageDogAge1 = result1.filter(age => age >= 28);
 
 const averageResult1 =
