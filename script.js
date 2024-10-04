@@ -301,10 +301,9 @@ const calcAverageHumanAge = ages => {
 let humanAge = [];
 const calcAverageHumanAgev2 = ages => {
   ages.forEach((ages, i) => {
-    const eleGreater = ages
-      .filter(ages => ages <= 2)
-      .filter(ages => ages * 2 >= 19)
-      .map(ages => humanAge.push(ages));
+    const eleGreater = ages.filter(ages => ages <= 2);
+    // .filter(ages => ages * 2 >= 19)
+    // .map(ages => humanAge.push(ages));
   });
 };
 
