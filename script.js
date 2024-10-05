@@ -301,7 +301,7 @@ const calcAverageHumanAge = ages => {
 let humanAge = [];
 const calcAverageHumanAgev2 = ages => {
   ages.forEach((ages, i) => {
-    const eleGreater = ages.filter(ages => ages <= 2);
+    console.log(ages);
     // .filter(ages => ages * 2 >= 19)
     // .map(ages => humanAge.push(ages));
   });
@@ -312,29 +312,29 @@ const calcAverageHumanAgev2 = ages => {
 const dogsAgeData1 = [5, 2, 4, 1, 15, 8, 3];
 const dogsAgeData2 = [16, 6, 10, 5, 6, 1, 4];
 
-const result1 = calcAverageHumanAge(dogsAgeData1);
-const result2 = calcAverageHumanAge(dogsAgeData2);
+// const result1 = calcAverageHumanAge(dogsAgeData1);
+// const result2 = calcAverageHumanAge(dogsAgeData2);
 const result3 = calcAverageHumanAgev2(dogsAgeData1);
 const result4 = calcAverageHumanAgev2(dogsAgeData2);
 
 console.log(result3);
 console.log(result4);
-const averageDogAge1 = result1.filter(age => age >= 28);
+// const averageDogAge1 = result1.filter(age => age >= 28);
 
-const averageResult1 =
-  averageDogAge1.reduce((acc, ele) => acc + ele, 0) / averageDogAge1.length;
-const averageDogAge2 = result2.filter(age => age >= 28);
+// const averageResult1 =
+//   averageDogAge1.reduce((acc, ele) => acc + ele, 0) / averageDogAge1.length;
+// const averageDogAge2 = result2.filter(age => age >= 28);
 
-const averageResult2 =
-  averageDogAge2.reduce((acc, ele) => acc + ele, 0) / averageDogAge2.length;
+// const averageResult2 =
+//   averageDogAge2.reduce((acc, ele) => acc + ele, 0) / averageDogAge2.length;
 
-console.log(result1);
-console.log(averageDogAge1);
-console.log(averageResult1);
-console.log(result2);
-console.log(averageDogAge2);
-console.log(averageResult2);
-console.log(calcAverageHumanAge(dogsAgeData1));
+// console.log(result1);
+// console.log(averageDogAge1);
+// console.log(averageResult1);
+// console.log(result2);
+// console.log(averageDogAge2);
+// console.log(averageResult2);
+// console.log(calcAverageHumanAge(dogsAgeData1));
 
 //Piperline
 const eurToUsd = 1.1;
@@ -347,4 +347,4 @@ const totalDepositsUSD = movements
   // .map(mov => mov * eurToUsd)
   .reduce((acc, mov) => acc + mov, 0);
 
-console.log(totalDepositsUSD);
+// console.log(totalDepositsUSD);
