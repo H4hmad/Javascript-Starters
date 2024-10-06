@@ -298,34 +298,25 @@ const calcAverageHumanAge = ages => {
 };
 
 //Challenege 3
-let humanAgex = [];
-const calcAverageHumanAgev2 = ages => {
+const calcAverageHumanAgev2 = ages =>
   ages
-    .filter(ages => ages > 2 && 16 + ages * 4 >= 19)
-    .map(ages => humanAgex.push(16 + ages * 4));
-  console.log(`This maybe: ${humanAgex}`);
-
-  // ages
-  //   .filter(ages => ages > 2 && 16 + ages * 4 >= 19)
-  //   .map(ages => humanAge.push(16 + ages * 4));
-
-  return humanAgex;
-};
-
+    .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
+    .filter(age => age >= 18)
+    .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
 //
 
 const dogsAgeData1 = [5, 2, 4, 1, 15, 8, 3];
 const dogsAgeData2 = [16, 6, 10, 5, 6, 1, 4];
 
-const result1 = calcAverageHumanAge(dogsAgeData1);
-const result2 = calcAverageHumanAge(dogsAgeData2);
-const result3 = calcAverageHumanAgev2(dogsAgeData1);
+// const result1 = calcAverageHumanAge(dogsAgeData1);
+// const result2 = calcAverageHumanAge(dogsAgeData2);
+const result3 = calcAverageHumanAgev2([5, 2, 4, 1, 15, 8, 3]);
 const result4 = calcAverageHumanAgev2(dogsAgeData2);
 
-console.log(`This is result1: ${result1}`);
-console.log(`This is result1: ${result2}`);
-console.log(`This is result1: ${result3}`);
-console.log(`This is result1: ${result4}`);
+// console.log(result1);
+// console.log(result2);
+console.log(result3);
+console.log(result4);
 // const averageDogAge1 = result1.filter(age => age >= 28);
 
 // const averageResult1 =
