@@ -116,6 +116,12 @@ const createUsernames = accs => {
 };
 createUsernames(accounts);
 
+// Event Handler
+btnLogin.addEventListener(`click`, e => {
+  e.preventDefault();
+  console.log(`Login`);
+});
+
 //Short Challenge
 
 /////////////////////////////////////////////////
