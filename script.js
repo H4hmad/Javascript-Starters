@@ -117,9 +117,13 @@ const createUsernames = accs => {
 createUsernames(accounts);
 
 // Event Handler
+let currentAccount;
+
 btnLogin.addEventListener(`click`, e => {
   e.preventDefault();
-  console.log(`Login`);
+
+  currentAccount = accounts.find(acc => acc.owner === inputLoginUsername.value);
+  console.log(currentAccount);
 });
 
 //Short Challenge
