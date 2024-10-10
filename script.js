@@ -148,6 +148,15 @@ btnLogin.addEventListener(`click`, e => {
   }
 });
 
+btnTransfer.addEventListener('click', e => {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+  console.log(amount, receiverAcc);
+});
+
 //Short Challenge
 
 /////////////////////////////////////////////////
