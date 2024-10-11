@@ -173,6 +173,19 @@ btnTransfer.addEventListener('click', e => {
   }
 });
 
+btnClose.addEventListener('click', e => {
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputCloseUsername.value
+  );
+  console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputClosePin.value)) {
+    console.log('Done and Dusted');
+  }
+});
+
 //Short Challenge
 
 /////////////////////////////////////////////////
