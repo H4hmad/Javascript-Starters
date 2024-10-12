@@ -176,16 +176,22 @@ btnTransfer.addEventListener('click', e => {
 btnClose.addEventListener('click', e => {
   e.preventDefault();
 
-  currentAccount = accounts.find(
-    acc => acc.username === inputCloseUsername.value
-  );
-  console.log(currentAccount);
+  if (
+    currentAccount?.pin === Number(inputClosePin.value) &&
+    currentAccount.username === inputCloseUsername.value
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    console.log(index);
 
-  if (currentAccount?.pin === Number(inputClosePin.value)) {
-    console.log('Done and Dusted');
+    accounts.splice(index, 1);
+
+    containerApp.style.opacity = 0;
+
+    inputClosePin.value = inputCloseUsername.value = '';
   }
 });
-
 //Short Challenge
 
 /////////////////////////////////////////////////
