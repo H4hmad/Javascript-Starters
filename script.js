@@ -488,9 +488,19 @@ console.log(owners.sort());
 console.log(owners);
 
 console.log(movements);
+
+//Ascending
 console.log(
   movements.sort((a, b) => {
     if (a > b) return 1;
     if (b > a) return -1;
+  })
+);
+
+//Descending
+console.log(
+  movements.sort((a, b) => {
+    if (a < b) return 1;
+    if (b < a) return -1;
   })
 );
