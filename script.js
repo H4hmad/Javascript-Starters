@@ -524,3 +524,23 @@ console.log(y);
 
 const z = Array.from({ length: 7 }, (_, i) => i + 1);
 console.log(z);
+
+const randDice = Array.from({ length: 100 }, (_, i) =>
+  Math.floor(Math.random() * 6 + 1)
+);
+console.log(randDice);
+
+const movementsUI = Array.from(document.querySelectorAll('.movements__value'));
+console.log(movementsUI);
+
+labelBalance.addEventListener('click', () => {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', ''))
+  );
+  console.log(movementsUI);
+
+  //Alternate
+  const movementsUI2 = [...document.querySelectorAll('movements__value')];
+  console.log(movementsUI2);
+});
