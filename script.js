@@ -491,14 +491,36 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // console.log(overAllBalance2);
 
-const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
-console.log(owners.sort());
-console.log(owners);
+// const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+// console.log(owners.sort());
+// console.log(owners);
 
-console.log(movements);
+// console.log(movements);
 
-//Ascending
-console.log(movements.sort((a, b) => a - b));
+// //Ascending
+// console.log(movements.sort((a, b) => a - b));
 
-//Descending
-console.log(movements.sort((a, b) => b - a));
+// //Descending
+// console.log(movements.sort((a, b) => b - a));
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+console.log(new Array(1, 2, 3, 4, 5, 6, 7, 8));
+
+const x = new Array(7);
+console.log(x);
+// console.log(x.map(() => 5));
+
+x.fill(1);
+x.fill(1, 3, 5);
+console.log(x);
+
+arr.fill(23, 4, 6);
+console.log(arr);
+
+//Array.from
+
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z);
