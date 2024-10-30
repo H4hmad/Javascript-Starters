@@ -545,57 +545,73 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //   console.log(movementsUI2);
 // });
 
-//1.
-const bankDepositSum = accounts
-  .flatMap(acc => acc.movements)
-  .filter(mov => mov > 0)
-  .reduce((sum, cur) => sum + cur, 0);
-console.log(bankDepositSum);
+// //1.
+// const bankDepositSum = accounts
+//   .flatMap(acc => acc.movements)
+//   .filter(mov => mov > 0)
+//   .reduce((sum, cur) => sum + cur, 0);
+// console.log(bankDepositSum);
 
-//2.
+// //2.
+// // const numDeposit1000 = accounts
+// //   .flatMap(acc => acc.movements)
+// //   .filter(mov => mov >= 1000).length;
+
 // const numDeposit1000 = accounts
 //   .flatMap(acc => acc.movements)
-//   .filter(mov => mov >= 1000).length;
+//   .reduce((count, cur) => {
+//     if (cur >= 1000) return ++count;
+//     else return count;
+//   }, 0);
 
-const numDeposit1000 = accounts
-  .flatMap(acc => acc.movements)
-  .reduce((count, cur) => {
-    if (cur >= 1000) return ++count;
-    else return count;
-  }, 0);
+// console.log(numDeposit1000);
 
-console.log(numDeposit1000);
+// //3.
+// const sums = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce(
+//     (sums, cur) => {
+//       // cur > 0 ? (sums.deposits += cur) : (sums.withdrawls += cur);
+//       sums[cur > 0 ? 'deposits' : 'withdrawls'] += cur;
+//       return sums;
+//     },
+//     {
+//       deposits: 0,
+//       withdrawls: 0,
+//     }
+//   );
+// console.log(sums);
 
-//3.
-const sums = accounts
-  .flatMap(acc => acc.movements)
-  .reduce(
-    (sums, cur) => {
-      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawls += cur);
-      sums[cur > 0 ? 'deposits' : 'withdrawls'] += cur;
-      return sums;
-    },
-    {
-      deposits: 0,
-      withdrawls: 0,
-    }
-  );
-console.log(sums);
+// //4.
+// const convertTitleCase = function (title) {
+//   const capitalize = str => str[0].toUpperCase() + str.slice(1);
+//   const exceptions = ['a', 'an', 'the', 'and', 'but', 'or', 'on', 'in', 'with'];
 
-//4.
-const convertTitleCase = function (title) {
-  const capitalize = str => str[0].toUpperCase() + str.slice(1);
-  const exceptions = ['a', 'an', 'the', 'and', 'but', 'or', 'on', 'in', 'with'];
+//   const titleCase = title
+//     .toLowerCase()
+//     .split(' ')
+//     .map(word =>
+//       exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
+//     )
+//     .join(' ');
+//   return capitalize(titleCase);
+// };
+// console.log(convertTitleCase('this is a nice title'));
+// console.log(convertTitleCase('this is a LONG title but not too long'));
+// console.log(convertTitleCase('and here is another title with an EXAMPLE'));
 
-  const titleCase = title
-    .toLowerCase()
-    .split(' ')
-    .map(word =>
-      exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
-    )
-    .join(' ');
-  return capitalize(titleCase);
-};
-console.log(convertTitleCase('this is a nice title'));
-console.log(convertTitleCase('this is a LONG title but not too long'));
-console.log(convertTitleCase('and here is another title with an EXAMPLE'));
+//CHALLENGE 4
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+//001
+console.log(
+  dogs.forEach(obj => {
+    obj.recommendedFood = Math.floor(obj.weight ** 0.75 * 28) / 1000;
+    console.log(obj);
+  })
+);
