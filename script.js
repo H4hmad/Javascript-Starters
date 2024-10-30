@@ -503,44 +503,99 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //Descending
 // console.log(movements.sort((a, b) => b - a));
 
-const arr = [1, 2, 3, 4, 5, 6, 7];
-console.log(new Array(1, 2, 3, 4, 5, 6, 7, 8));
+// const arr = [1, 2, 3, 4, 5, 6, 7];
+// console.log(new Array(1, 2, 3, 4, 5, 6, 7, 8));
 
-const x = new Array(7);
-console.log(x);
-// console.log(x.map(() => 5));
+// const x = new Array(7);
+// console.log(x);
+// // console.log(x.map(() => 5));
 
-x.fill(1);
-x.fill(1, 3, 5);
-console.log(x);
+// x.fill(1);
+// x.fill(1, 3, 5);
+// console.log(x);
 
-arr.fill(23, 4, 6);
-console.log(arr);
+// arr.fill(23, 4, 6);
+// console.log(arr);
 
-//Array.from
+// //Array.from
 
-const y = Array.from({ length: 7 }, () => 1);
-console.log(y);
+// const y = Array.from({ length: 7 }, () => 1);
+// console.log(y);
 
-const z = Array.from({ length: 7 }, (_, i) => i + 1);
-console.log(z);
+// const z = Array.from({ length: 7 }, (_, i) => i + 1);
+// console.log(z);
 
-const randDice = Array.from({ length: 100 }, (_, i) =>
-  Math.floor(Math.random() * 6 + 1)
-);
-console.log(randDice);
+// const randDice = Array.from({ length: 100 }, (_, i) =>
+//   Math.floor(Math.random() * 6 + 1)
+// );
+// console.log(randDice);
 
-const movementsUI = Array.from(document.querySelectorAll('.movements__value'));
-console.log(movementsUI);
+// const movementsUI = Array.from(document.querySelectorAll('.movements__value'));
+// console.log(movementsUI);
 
-labelBalance.addEventListener('click', () => {
-  const movementsUI = Array.from(
-    document.querySelectorAll('.movements__value'),
-    el => Number(el.textContent.replace('€', ''))
+// labelBalance.addEventListener('click', () => {
+//   const movementsUI = Array.from(
+//     document.querySelectorAll('.movements__value'),
+//     el => Number(el.textContent.replace('€', ''))
+//   );
+//   console.log(movementsUI);
+
+//   //Alternate
+//   const movementsUI2 = [...document.querySelectorAll('movements__value')];
+//   console.log(movementsUI2);
+// });
+
+//1.
+const bankDepositSum = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((sum, cur) => sum + cur, 0);
+console.log(bankDepositSum);
+
+//2.
+// const numDeposit1000 = accounts
+//   .flatMap(acc => acc.movements)
+//   .filter(mov => mov >= 1000).length;
+
+const numDeposit1000 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((count, cur) => {
+    if (cur >= 1000) return ++count;
+    else return count;
+  }, 0);
+
+console.log(numDeposit1000);
+
+//3.
+const sums = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawls += cur);
+      sums[cur > 0 ? 'deposits' : 'withdrawls'] += cur;
+      return sums;
+    },
+    {
+      deposits: 0,
+      withdrawls: 0,
+    }
   );
-  console.log(movementsUI);
+console.log(sums);
 
-  //Alternate
-  const movementsUI2 = [...document.querySelectorAll('movements__value')];
-  console.log(movementsUI2);
-});
+//4.
+const convertTitleCase = function (title) {
+  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+  const exceptions = ['a', 'an', 'the', 'and', 'but', 'or', 'on', 'in', 'with'];
+
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word =>
+      exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join(' ');
+  return capitalize(titleCase);
+};
+console.log(convertTitleCase('this is a nice title'));
+console.log(convertTitleCase('this is a LONG title but not too long'));
+console.log(convertTitleCase('and here is another title with an EXAMPLE'));
