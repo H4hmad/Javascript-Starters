@@ -609,9 +609,23 @@ const dogs = [
 ];
 
 //001
-console.log(
-  dogs.forEach(obj => {
-    obj.recommendedFood = Math.floor(obj.weight ** 0.75 * 28);
-    console.log(obj);
-  })
-);
+dogs.forEach(obj => {
+  obj.recommendedFood = Math.floor(obj.weight ** 0.75 * 28);
+});
+console.log(dogs);
+
+//002
+dogs.forEach(obj => {
+  if (obj.owners.findIndex(str => str == 'Sarah') == 0) {
+    console.log(
+      `Sarah's dog is eating ${
+        obj.curFood > obj.recommendedFood * 0.9 &&
+        obj.curFood < obj.recommendedFood * 1.1
+          ? 'an Okay amount'
+          : obj.curFood > obj.recommendedFood * 0.9
+          ? 'too much'
+          : 'too less'
+      } food. `
+    );
+  }
+});
