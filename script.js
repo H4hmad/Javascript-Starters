@@ -611,7 +611,7 @@ const dogs = [
 //001
 console.log(
   dogs.forEach(obj => {
-    obj.recommendedFood = Math.floor(obj.weight ** 0.75 * 28) / 1000;
+    obj.recommendedFood = Math.floor(obj.weight ** 0.75 * 28);
     console.log(obj);
   })
 );
