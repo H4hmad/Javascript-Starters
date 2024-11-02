@@ -545,139 +545,139 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //   console.log(movementsUI2);
 // });
 
-// //1.
-// const bankDepositSum = accounts
-//   .flatMap(acc => acc.movements)
-//   .filter(mov => mov > 0)
-//   .reduce((sum, cur) => sum + cur, 0);
-// console.log(bankDepositSum);
+//1.
+const bankDepositSum = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((sum, cur) => sum + cur, 0);
+console.log(bankDepositSum);
 
-// //2.
-// // const numDeposit1000 = accounts
-// //   .flatMap(acc => acc.movements)
-// //   .filter(mov => mov >= 1000).length;
-
+//2.
 // const numDeposit1000 = accounts
 //   .flatMap(acc => acc.movements)
-//   .reduce((count, cur) => {
-//     if (cur >= 1000) return ++count;
-//     else return count;
-//   }, 0);
+//   .filter(mov => mov >= 1000).length;
 
-// console.log(numDeposit1000);
+const numDeposit1000 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((count, cur) => {
+    if (cur >= 1000) return ++count;
+    else return count;
+  }, 0);
 
-// //3.
-// const sums = accounts
-//   .flatMap(acc => acc.movements)
-//   .reduce(
-//     (sums, cur) => {
-//       // cur > 0 ? (sums.deposits += cur) : (sums.withdrawls += cur);
-//       sums[cur > 0 ? 'deposits' : 'withdrawls'] += cur;
-//       return sums;
-//     },
-//     {
-//       deposits: 0,
-//       withdrawls: 0,
-//     }
-//   );
-// console.log(sums);
+console.log(numDeposit1000);
 
-// //4.
-// const convertTitleCase = function (title) {
-//   const capitalize = str => str[0].toUpperCase() + str.slice(1);
-//   const exceptions = ['a', 'an', 'the', 'and', 'but', 'or', 'on', 'in', 'with'];
+//3.
+const sums = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawls += cur);
+      sums[cur > 0 ? 'deposits' : 'withdrawls'] += cur;
+      return sums;
+    },
+    {
+      deposits: 0,
+      withdrawls: 0,
+    }
+  );
+console.log(sums);
 
-//   const titleCase = title
-//     .toLowerCase()
-//     .split(' ')
-//     .map(word =>
-//       exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
-//     )
-//     .join(' ');
-//   return capitalize(titleCase);
-// };
-// console.log(convertTitleCase('this is a nice title'));
-// console.log(convertTitleCase('this is a LONG title but not too long'));
-// console.log(convertTitleCase('and here is another title with an EXAMPLE'));
+//4.
+const convertTitleCase = function (title) {
+  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+  const exceptions = ['a', 'an', 'the', 'and', 'but', 'or', 'on', 'in', 'with'];
 
-//CHALLENGE 4
-const dogs = [
-  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-  { weight: 8, curFood: 200, owners: ['Matilda'] },
-  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
-  { weight: 32, curFood: 340, owners: ['Michael'] },
-];
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word =>
+      exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join(' ');
+  return capitalize(titleCase);
+};
+console.log(convertTitleCase('this is a nice title'));
+console.log(convertTitleCase('this is a LONG title but not too long'));
+console.log(convertTitleCase('and here is another title with an EXAMPLE'));
 
-//001
-dogs.forEach(obj => {
-  obj.recommendedFood = Math.floor(obj.weight ** 0.75 * 28);
-});
-console.log(dogs);
+// //CHALLENGE 4
+// const dogs = [
+//   { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+//   { weight: 8, curFood: 200, owners: ['Matilda'] },
+//   { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+//   { weight: 32, curFood: 340, owners: ['Michael'] },
+// ];
 
-//002
-dogs.forEach(obj => {
-  if (obj.owners.findIndex(str => str == 'Sarah') == 0) {
-    console.log(
-      `Sarah's dog is eating ${
-        obj.curFood > obj.recommendedFood * 0.9 &&
-        obj.curFood < obj.recommendedFood * 1.1
-          ? 'an Okay amount'
-          : obj.curFood > obj.recommendedFood * 0.9
-          ? 'too much'
-          : 'too less'
-      } food. `
-    );
-  }
-});
+// //001
+// dogs.forEach(obj => {
+//   obj.recommendedFood = Math.floor(obj.weight ** 0.75 * 28);
+// });
+// console.log(dogs);
 
-//002 Alternative
-const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
-console.log(dogSarah);
-console.log(
-  `Sarah's dog is eating too ${
-    dogSarah.curFood > dogSarah.recommendedFood ? 'much' : 'little'
-  }`
-);
+// //002
+// dogs.forEach(obj => {
+//   if (obj.owners.findIndex(str => str == 'Sarah') == 0) {
+//     console.log(
+//       `Sarah's dog is eating ${
+//         obj.curFood > obj.recommendedFood * 0.9 &&
+//         obj.curFood < obj.recommendedFood * 1.1
+//           ? 'an Okay amount'
+//           : obj.curFood > obj.recommendedFood * 0.9
+//           ? 'too much'
+//           : 'too less'
+//       } food. `
+//     );
+//   }
+// });
 
-//003
-const ownersEatTooMuch = dogs
-  .filter(dog => dog.curFood > dog.recommendedFood * 0.9)
-  .flatMap(dog => dog.owners);
-console.log(ownersEatTooMuch);
+// //002 Alternative
+// const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
+// console.log(dogSarah);
+// console.log(
+//   `Sarah's dog is eating too ${
+//     dogSarah.curFood > dogSarah.recommendedFood ? 'much' : 'little'
+//   }`
+// );
 
-const ownersEatTooLittle = dogs
-  .filter(dog => dog.curFood < dog.recommendedFood * 1.1)
-  .flatMap(dog => dog.owners);
-console.log(ownersEatTooLittle);
+// //003
+// const ownersEatTooMuch = dogs
+//   .filter(dog => dog.curFood > dog.recommendedFood * 0.9)
+//   .flatMap(dog => dog.owners);
+// console.log(ownersEatTooMuch);
 
-//004
-console.log(`${ownersEatTooMuch.join(`'s and `)}'s dogs eat too much`);
+// const ownersEatTooLittle = dogs
+//   .filter(dog => dog.curFood < dog.recommendedFood * 1.1)
+//   .flatMap(dog => dog.owners);
+// console.log(ownersEatTooLittle);
 
-console.log(`${ownersEatTooLittle.join(`'s and `)}'s dogs eat too little`);
+// //004
+// console.log(`${ownersEatTooMuch.join(`'s and `)}'s dogs eat too much`);
 
-//005
-console.log(dogs.includes(dog => dog.curFood === dog.recommendedFood));
+// console.log(`${ownersEatTooLittle.join(`'s and `)}'s dogs eat too little`);
 
-//006
-console.log(
-  dogs.some(
-    dogs =>
-      dogs.curFood > dogs.recommendedFood * 0.9 &&
-      dogs.curFood < dogs.recommendedFood * 1.1
-  )
-);
+// //005
+// console.log(dogs.includes(dog => dog.curFood === dog.recommendedFood));
 
-//7
-const okayDogs = dogs.filter(
-  dogs =>
-    dogs.curFood > dogs.recommendedFood * 0.9 &&
-    dogs.curFood < dogs.recommendedFood * 1.1
-);
-console.log(okayDogs);
+// //006
+// console.log(
+//   dogs.some(
+//     dogs =>
+//       dogs.curFood > dogs.recommendedFood * 0.9 &&
+//       dogs.curFood < dogs.recommendedFood * 1.1
+//   )
+// );
 
-//008
-let shallowDogs = dogs
-  .slice()
-  .sort((a, b) => a.recommendedFood - b.recommendedFood);
+// //7
+// const okayDogs = dogs.filter(
+//   dogs =>
+//     dogs.curFood > dogs.recommendedFood * 0.9 &&
+//     dogs.curFood < dogs.recommendedFood * 1.1
+// );
+// console.log(okayDogs);
 
-console.log(shallowDogs);
+// //008
+// let shallowDogs = dogs
+//   .slice()
+//   .sort((a, b) => a.recommendedFood - b.recommendedFood);
+
+// console.log(shallowDogs);
