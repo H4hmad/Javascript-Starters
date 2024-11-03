@@ -325,4 +325,12 @@ console.log(PI);
 
 console.log(Number('230_  000'));
 
-// console.log(2 ** 53 - 1);
+//BIGINT
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+
+console.log(2348972384728947981273981273897127388n);
+console.log(BigInt(234897238472894));
+console.log(10000n + 10000n);
+console.log(239283940248340238402834n + 10000000000000n);
