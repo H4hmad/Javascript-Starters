@@ -119,12 +119,12 @@ btnScrollTo.addEventListener('click', e => {
     document.documentElement.clientWidth
   );
 
-  // window.scrollTo(s1coords.left + window.scrollX, s1coords.top + scrollY);
-  // window.scrollTo({
-  //   left: s1coords.left + window.scrollX,
-  //   top: s1coords.top + scrollY,
-  //   behavior: 'smooth',
-  // });
+  window.scrollTo(s1coords.left + window.scrollX, s1coords.top + scrollY);
+  window.scrollTo({
+    left: s1coords.left + window.scrollX,
+    top: s1coords.top + scrollY,
+    behavior: 'smooth',
+  });
 
   section1.scrollIntoView({ behavior: 'smooth' });
 });
