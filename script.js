@@ -127,3 +127,22 @@ btnScrollTo.addEventListener('click', e => {
 
   // section1.scrollIntoView({ behavior: 'smooth' });
 });
+
+const h1 = document.querySelector('h1');
+
+const alertH1 = e => {
+  alert('addEventListener: Great the mouseenter event has now been triggered.');
+
+  //removing the event listner
+  // h1.removeEventListener('mo useenter', alertH1);
+};
+
+h1.addEventListener('mouseenter', alertH1);
+
+//Removing eventlistener after a certain amount of time:
+setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
+
+////OLD SCHOOL////
+// h1.onmouseenter = e => {
+//   alert('addEventListener: Great the mouseenter event has now been triggered.');
+// };
